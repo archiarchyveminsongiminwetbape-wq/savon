@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   currentYear();
   injectWhatsAppButton();
   initHeaderEffects();
+  injectMobileMenuToggle();
   injectPromoBar();
 });
 
@@ -281,4 +282,54 @@ function injectPromoBar(){
   const close = ()=>{ bar.remove(); sessionStorage.setItem('promo_closed','1'); };
   bar.addEventListener('click', (e)=>{ if(e.target.closest('.close')) close(); });
   document.body.prepend(bar);
+}
+
+// Mobile menu toggle (burger)
+function injectMobileMenuToggle(){
+  const header = document.querySelector('.site-header');
+  if(!header) return;
+  const wrap = header.querySelector('.header-inner');
+  const nav = header.querySelector('.nav');
+  if(!wrap || !nav) return;
+  if (header.querySelector('.nav-toggle')) return; // already added
+
+  // Ensure nav has an id for aria-controls
+  if(!nav.id){ nav.id = 'site-nav'; }
+
+  const btn = document.createElement('button');
+  btn.className = 'nav-toggle';
+  btn.setAttribute('aria-label','Ouvrir le menu');
+  btn.setAttribute('aria-expanded','false');
+  btn.setAttribute('aria-controls', nav.id);
+  btn.innerHTML = '☰';
+
+  // Place the button after the brand link
+  const brand = header.querySelector('.brand');
+  if (brand && brand.nextSibling){
+    wrap.insertBefore(btn, brand.nextSibling);
+  } else {
+    wrap.insertBefore(btn, nav);
+  }
+
+  const closeMenu = () => {
+    header.classList.remove('menu-open');
+    btn.setAttribute('aria-expanded','false');
+    btn.setAttribute('aria-label','Ouvrir le menu');
+  };
+  const openMenu = () => {
+    header.classList.add('menu-open');
+    btn.setAttribute('aria-expanded','true');
+    btn.setAttribute('aria-label','Fermer le menu');
+  };
+  const toggleMenu = () => {
+    if (header.classList.contains('menu-open')) closeMenu(); else openMenu();
+  };
+
+  btn.addEventListener('click', toggleMenu);
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); }, { passive: true });
+  // Close on nav link click (use capture to catch before navigation)
+  nav.addEventListener('click', (e)=>{
+    const a = e.target.closest('a');
+    if(a) closeMenu();
+  }, true);
 }

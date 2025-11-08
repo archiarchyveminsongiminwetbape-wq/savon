@@ -95,8 +95,15 @@ a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
 
 /* Responsive */
 @media (max-width: 900px){
+  /* Burger button */
+  .nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--text);cursor:pointer}
+  .nav-toggle:focus{outline:2px solid #a7f3d0; outline-offset:2px}
   .header-inner{flex-wrap:wrap}
-  .nav{flex-wrap:wrap}
+  /* Mobile menu panel (hidden by default) */
+  .nav{display:none;flex-direction:column;gap:10px;width:100%;background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px;margin-top:8px}
+  .site-header.menu-open .nav{display:flex}
+  .nav a{padding:8px 6px;border-radius:8px}
+  .nav a:hover{background:#f8fafc}
   .hero-inner{flex-direction:column;gap:16px}
   .hero-text{text-align:center}
   .actions{justify-content:center}
