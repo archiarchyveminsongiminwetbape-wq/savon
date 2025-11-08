@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panier - EcoClean</title>
+  <link rel="icon" href="assets/img/logo.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <img src="assets/img/logo.png" alt="EcoClean" class="logo">
+      <span class="brand-name">EcoClean</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="shop.html">Boutique</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn-cart active" href="cart.html">Panier <span id="navCartCount" class="badge">0</span></a>
+    </nav>
+    <div class="contact-top">📞 686875289</div>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Votre panier</h1>
+  <div id="cartView"></div>
+  <div class="cart-actions">
+    <a class="btn ghost" href="shop.html">Continuer vos achats</a>
+    <a class="btn primary" href="checkout.html">Passer au paiement</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="brand-row">
+      <img src="assets/img/logo.png" alt="EcoClean" class="logo sm">
+      <strong>EcoClean</strong>
+    </div>
+    <p>© <span id="year"></span> EcoClean</p>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', renderCartPage);
+</script>
+</body>
+</html>

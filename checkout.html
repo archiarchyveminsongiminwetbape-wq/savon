@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout - HonoréeClean</title>
+  <link rel="icon" href="assets/img/logo.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <img src="assets/img/logo.png" alt="HonoréeClean" class="logo">
+      <span class="brand-name">HonoréeClean</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="shop.html">Boutique</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="contact-top">📞 686875289</div>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Informations de livraison</h1>
+  <form id="checkoutForm" class="form">
+    <div class="grid-2">
+      <div class="form-field">
+        <label>Nom complet</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-field">
+        <label>Téléphone</label>
+        <input type="tel" name="phone" required>
+      </div>
+      <div class="form-field">
+        <label>Ville</label>
+        <input type="text" name="city" required>
+      </div>
+      <div class="form-field">
+        <label>Adresse complète</label>
+        <input type="text" name="address" required>
+      </div>
+      <div class="form-field">
+        <label>Quantité</label>
+        <input type="number" name="qty" id="qtyInput" min="1" value="1" required>
+      </div>
+      <div class="form-field">
+        <label>Jour de livraison</label>
+        <input type="date" name="delivery_date" id="deliveryDate" required>
+      </div>
+      <div class="form-field">
+        <label>Heure souhaitée</label>
+        <input type="time" name="delivery_time" id="deliveryTime" required>
+      </div>
+      <div class="form-field">
+        <label>Zone de livraison</label>
+        <select name="zone" id="zoneSelect" required></select>
+      </div>
+      <div class="form-field">
+        <label>Méthode de paiement</label>
+        <select name="payment" id="paymentMethod" required>
+          <option value="orange">Orange Money</option>
+          <option value="mtn">MTN MoMo</option>
+          <option value="cod">Espèce à la livraison</option>
+        </select>
+      </div>
+      <div class="form-field full" id="paymentInstructions" style="display:none"></div>
+    </div>
+
+    <h2>Récapitulatif</h2>
+    <div id="checkoutSummary" class="checkout-summary"></div>
+
+    <button type="submit" class="btn primary">Confirmer la commande</button>
+    <div id="postSubmitMessage" class="card" style="display:none;margin-top:12px"></div>
+  </form>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="brand-row">
+      <img src="assets/img/logo.png" alt="HonoréeClean" class="logo sm">
+      <strong>HonoréeClean</strong>
+    </div>
+    <p>© <span id="year"></span> HonoréeClean</p>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', initCheckoutPage);
+</script>
+</body>
+</html>

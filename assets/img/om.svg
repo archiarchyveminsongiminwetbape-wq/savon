@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="48" viewBox="0 0 128 48" role="img" aria-label="Orange Money">
+  <rect width="128" height="48" rx="8" fill="#ff7900"/>
+  <g fill="#fff" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <text x="56" y="30" font-size="18">Orange</text>
+  </g>
+  <path d="M20 12 l10 0 l-6 8 l6 8 l-10 0 l-6 -8 z" fill="#fff"/>
+</svg>

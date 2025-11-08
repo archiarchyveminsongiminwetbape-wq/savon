@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boutique - HonoréeClean</title>
+  <link rel="icon" href="assets/img/logo.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <img src="assets/img/logo.png" alt="HonoréeClean" class="logo">
+      <span class="brand-name">HonoréeClean</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a class="active" href="shop.html">Boutique</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="contact-top">📞 686875289</div>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Boutique</h1>
+  <div id="productGrid" class="grid-3"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="brand-row">
+      <img src="assets/img/logo.png" alt="HonoréeClean" class="logo sm">
+      <strong>HonoréeClean</strong>
+    </div>
+    <p>© <span id="year"></span> HonoréeClean</p>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    renderProducts('productGrid');
+  });
+</script>
+</body>
+</html>
